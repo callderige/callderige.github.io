@@ -13,12 +13,26 @@ body {
 		margin-left: 2.5%;
 		margin-right: 2.5%;
 	}
+
+	.container-flush {
+		margin: 0;
+		padding-left: 2.5%;
+		padding-right: 2.5%;
+		background: #6099A6;
+	}
 }
 
 @media only screen and (min-width: 1200px) {
 	.container {
 		margin-left: 20%;
 		margin-right: 20%;
+	}
+
+	.container-flush{
+		padding-left: 20%;
+		padding-right: 20%;
+		margin: 0;
+		background: #6099A6;
 	}
 }
 
@@ -151,10 +165,28 @@ hr.underline {
 	}
 	.project {
 		width: auto;
-		margin: 5px 5px 5px 5px;
-		padding: 5px;
 		background: #6099A6;
-		text-align: center;
+		text-align: left;
+		display: grid;
+		grid-template-columns: 2fr 4fr 7fr;
+		grid-template-rows: 10fr 2fr;
+		grid-template-areas: 
+		"project-img project-link project-text"
+		". . project-notification";
+		justify-content: left;
+	}
+
+	.project > .project-link {
+		color: #EBF2F1;
+		grid-area: project-link;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
+	.project > .project-text {
+		margin-top: auto;
+		margin-bottom: auto;
+		grid-area: project-text;
 	}
 
 	.github {
@@ -178,7 +210,17 @@ hr.underline {
 		padding: 5px;
 		background: #6099A6;
 		text-align: center;
-		border-radius: 4px;
+	}
+
+	.project > .project-link {
+		color: #EBF2F1;
+		grid-area: project-link;
+		margin: auto;
+	}
+
+	.project > .project-text {
+		margin: auto;
+		grid-area: project-text;
 	}
 
 	.github {
@@ -186,25 +228,23 @@ hr.underline {
 		cursor: pointer;
 		margin: 0 42.5% 0 42.5%;
 		width: 33%;
+		padding-top: 21px;
+		padding-bottom: 21px;
+		border: 1px solid #EBF2F1;
+		border-radius: 2px;
 	}
 }
 
-
-.project a {
+.project > .project-img {
+	margin: auto;
 	color: #EBF2F1;
+	grid-area: project-img;
 }
 
-.project p {
-	padding: 0 20px 0 20px;
+.project-notification {
+	grid-area: project-notification;
+	margin: auto;
 }
-
-.project i {
-	margin: 0 0 16px 0;
-	padding: 0 20px 0 20px;
-	color: #EBF2F1;
-}
-
-
 
 footer {
 	color: #EBF2F1;
@@ -212,5 +252,9 @@ footer {
 }
 
 footer a {
+	color: #EBF2F1;
+}
+
+.projects-section-title {
 	color: #EBF2F1;
 }
